@@ -171,6 +171,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zpreztorc" ]]; then
   source "${ZDOTDIR:-$HOME}/.zpreztorc"
 fi
 
+# Source the Prezto host-specific configuration file.
+if [[ -s "${ZDOTDIR:-$HOME}/.zpreztorc.local" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zpreztorc.local"
+fi
+
 # Disable color and theme in dumb terminals.
 if [[ "$TERM" == 'dumb' ]]; then
   zstyle ':prezto:*:*' color 'no'
@@ -188,6 +193,5 @@ for zfunction ("$zfunctions[@]") autoload -Uz "$zfunction"
 unset zfunction{s,}
 
 # Load Prezto modules.
-zstyle -a ':prezto:load' pmodule 'pmodules'
 pmodload "$pmodules[@]"
 unset pmodules

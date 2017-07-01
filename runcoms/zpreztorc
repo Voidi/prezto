@@ -27,18 +27,9 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Zsh functions to load (man zshcontrib).
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
-# Set the Prezto modules to load (browse modules).
-# The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'prompt'
+# Set the Prezto modules to load (browse modules). The order matters.
+# This variant allows adding modules in local overwrite files
+pmodules=(environment terminal editor history directory spectrum utility completion command-not-found syntax-highlighting history-substring-search autosuggestions prompt archive fasd git gpg rsync ssh python overwrite)
 
 #
 # Autosuggestions
