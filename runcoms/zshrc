@@ -19,3 +19,4 @@ fi
 fpath+=~/.zfunc
 
 # Customize to your needs...
+setopt Interactivecomments
