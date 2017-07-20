@@ -49,6 +49,7 @@ PROMPT_SYMBOL="❯ "
 ROOT_PROMPT_SYMBOL="⚡"
 CMD_EXEC_TIME_SYMBOL="⌛"
 SEGMENT_SEPARATOR=":" #"\ue0b0" #▶ #only in powerline patched font
+TIME_SYMBOL=$(echo -e "\u23F2")
 CMD_MAX_EXEC_TIME=3
 
 # Colors
@@ -245,7 +246,7 @@ function prompt_pursorin_setup {
 	fi
 
 	# shows current date and time, prompt turns red if the previous command didn't exit with 0
-	PROMPT="%D{%d.%m} ⌚ %B%D{%H:%M:%S}%b%(?.%F{$SUCCESS}.%F{$ERROR})${PROMPT_SYMBOL}%f${editor_info[keymap]}"
+	PROMPT="%D{%d.%m}${TIME_SYMBOL} %B%D{%H:%M:%S}%b%(?.%F{$SUCCESS}.%F{$ERROR})${PROMPT_SYMBOL}%f${editor_info[keymap]}"
 
 	# shows the return code in red if not 0, otherwise green arrow
 	RPROMPT=''
