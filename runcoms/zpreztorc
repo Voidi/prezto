@@ -29,7 +29,7 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules). The order matters.
 # This variant allows adding modules in local overwrite files
-pmodules=(environment terminal editor history directory spectrum utility completion command-not-found syntax-highlighting history-substring-search autosuggestions prompt archive fasd git gpg rsync python overwrite)
+pmodules=(environment terminal editor history directory spectrum utility completion command-not-found autosuggestions archive fasd git gpg rsync python overwrite syntax-highlighting history-substring-search prompt)
 
 #
 # Autosuggestions
