@@ -20,3 +20,17 @@ bindkey "^Z" undo
 
 # Redo.
 bindkey "^Y" redo
+
+function glob-alias() {
+  if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
+    zle _expand_alias
+    zle expand-word
+  fi
+  zle self-insert
+}
+# Keybinds for emacs and vi insert mode
+for keymap in 'emacs' 'viins'; do
+  # control-space expands all aliases, including global
+  bindkey -M "$keymap" " " glob-alias
+  bindkey -M "$keymap" "$key_info[Control] " magic-space
+done
