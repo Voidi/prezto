@@ -34,3 +34,19 @@ for keymap in 'emacs' 'viins'; do
   bindkey -M "$keymap" " " glob-alias
   bindkey -M "$keymap" "$key_info[Control] " magic-space
 done
+
+open-widget() {
+  [[ -z $BUFFER ]] && zle up-history
+  [[ $BUFFER != o\ * ]] && LBUFFER="o $LBUFFER"
+  zle accept-line
+}
+zle -N open-widget
+bindkey "^O" open-widget
+
+man-widget() {
+  [[ -z $BUFFER ]] && zle up-history
+  [[ $BUFFER != man\ * ]] && LBUFFER="man $LBUFFER"
+  zle accept-line
+}
+zle -N man-widget
+bindkey "^H" man-widget
