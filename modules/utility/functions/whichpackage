@@ -1,0 +1,24 @@
+#
+# Search to which package a particular file or command belongs
+#
+# Authors:
+#   Tobias Wohlfarth <tobias.wohlfarth@googlemail.com>
+#
+
+function whichpackage() {
+	if [ $# -eq 0 ]; then
+		return
+	fi
+	pattern="$1"
+	if [ ! -e "$1" ];
+	then
+		pattern=$(whereis -b -B $path -f "${1}" | sed 's/.*: //')
+		if [ $? -ne 0 ];
+		then
+			return
+		fi
+	fi
+	dpkg -S "$pattern"
+}
+
+whichpackage "$@"

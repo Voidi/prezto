@@ -1,0 +1,4 @@
+#compdef whichpackage=whereis
+#autoload
+
+_whereis
