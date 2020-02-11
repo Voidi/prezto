@@ -15,4 +15,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
 	source "${ZDOTDIR:-$HOME}/.zshrc.local"
 fi
 
+# User local functions
+fpath+=~/.zfunc
+
 # Customize to your needs...
