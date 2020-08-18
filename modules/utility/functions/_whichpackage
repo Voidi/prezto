@@ -1,4 +1,3 @@
-#compdef whichpackage=whereis
-#autoload
+#compdef whichpackage
 
-_whereis
+_command_names -e

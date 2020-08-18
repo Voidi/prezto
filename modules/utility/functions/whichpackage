@@ -9,16 +9,19 @@ function whichpackage() {
 	if [ $# -eq 0 ]; then
 		return
 	fi
-	pattern="$1"
-	if [ ! -e "$1" ];
-	then
-		pattern=$(whereis -b -B $path -f "${1}" | sed 's/.*: //')
-		if [ $? -ne 0 ];
+	
+	for argument in "$@"; do
+		pattern="${argument}"
+		if [ ! -e "${argument}" ];
 		then
-			return
+			pattern=$(whereis -b -B $path -f "${argument}" | sed 's/.*: //')
+			if [ $? -ne 0 ];
+			then
+				return
+			fi
 		fi
-	fi
-	dpkg -S "$pattern"
+		dpkg -S "$pattern"
+	done
 }
 
 whichpackage "$@"
